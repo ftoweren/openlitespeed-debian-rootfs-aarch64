@@ -1,9 +1,14 @@
 # OpenLiteSpeed on Debian Trixie RootFS (ARM64 / AArch64)
 
+_general info:_
+
 An ultra-lightweight, high-performance OpenLiteSpeed (1.8.4) Docker image built from scratch using a custom Debian Trixie (Testing) `mmdebstrap` rootfs. Optimized for ARM64 edge devices, Single Board Computers (SBCs), and low-resource environments.
-
-Tested and validated on **ZTE B860H v2** running **Armbian Community v25.11 (Linux Kernel 6.12)**.
-
+- Openlitespeed-1.8.4 on Debian Trixie rootfs essential + apt (linux/aarch64)
+- Expose http 80 (8880:80), https 443 (8843:443), admin https 7080 (8870:7080)
+- Built and tested on ARM64 device (ZTE B860H v.2) with Armbian Community v25.11 running:
+```
+https://github.com/armbian/community/releases/download/25.11.0-trunk.472/Armbian_community_25.11.0-trunk.472_Aml-s9xx-box_trixie_current_6.12.57_minimal.img.xz
+```
 ---
 
 ## Quick Start
