@@ -11,10 +11,10 @@ Tested and validated on **ZTE B860H v2** running **Armbian Community v25.11 (Lin
 ### Pull Image
 ```bash
 docker pull ftoweren/openlitespeed-debian-rootfs-aarch64:latest
+```
 
----
-
-Run Container (With Persistent Volume & Custom Ports):
+### Run Container (With Persistent Volume & Custom Ports)
+```bash
 docker run -itd \
   -p 8880:80 \
   -p 8843:443 \
@@ -23,22 +23,24 @@ docker run -itd \
   --restart always \
   -v openlitespeed_data:/var/lsws-www \
   ftoweren/openlitespeed-debian-rootfs-aarch64:latest
+```
 
-Post-Installation Management
-----------------------------
+### Post-Installation Management
 Change OpenLiteSpeed Admin Password:
+```bash
 docker exec -it ols-debian-rootfs /usr/local/lsws/admin/misc/admpass.sh
-
+```
 Change Container Root Password (if needed):
+```bash
 docker exec -it ols-debian-rootfs passwd
-
+```
 ---
 
-How to Build from Source
-------------------------
+## Build from Source
 
-1.  Generate Custom Minimal Debian Trixie RootFS
+### 1.  Generate Custom Minimal Debian Trixie RootFS
 To build the exact base rootfs tarball used in this setup (build rootfs using mmdebstrap):
+```
 mmdebstrap --variant=essential --include=apt,passwd,openssl,ca-certificates,procps,curl,wget \
   --aptopt='Apt::Install-Recommends "false"' \
   --dpkgopt="path-exclude=/usr/share/doc/*" \
@@ -51,6 +53,9 @@ mmdebstrap --variant=essential --include=apt,passwd,openssl,ca-certificates,proc
   --dpkgopt="path-exclude=/usr/share/i18n/*" \
   --dpkgopt="path-exclude=/usr/lib/debug/*" \
   trixie debian-rootfs-essential-apt-trixie-aarch64.tar.gz
+```
 
-2.  Build Docker Image
+### 2.  Build Docker Image
+```
 docker build --no-cache -f path/Dockerfile -t openlitespeed-debian-rootfs-aarch64:latest .
+```
