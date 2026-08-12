@@ -38,7 +38,7 @@ How to Build from Source
 ------------------------
 
 1.  Generate Custom Minimal Debian Trixie RootFS
-To build the exact base rootfs tarball used in this setup:
+To build the exact base rootfs tarball used in this setup (build rootfs using mmdebstrap):
 mmdebstrap --variant=essential --include=apt,passwd,openssl,ca-certificates,procps,curl,wget \
   --aptopt='Apt::Install-Recommends "false"' \
   --dpkgopt="path-exclude=/usr/share/doc/*" \
@@ -53,4 +53,4 @@ mmdebstrap --variant=essential --include=apt,passwd,openssl,ca-certificates,proc
   trixie debian-rootfs-essential-apt-trixie-aarch64.tar.gz
 
 2.  Build Docker Image
-docker build --no-cache -t ftoweren/openlitespeed-debian-rootfs-aarch64:latest .
+docker build --no-cache -f path/Dockerfile -t openlitespeed-debian-rootfs-aarch64:latest .
