@@ -1,7 +1,5 @@
 FROM scratch
 ADD variant-essential+apt/debian-rootfs-essential-apt-trixie-aarch64.tar.gz /
-#comment below if not using volume
-VOLUME /var/lsws-www
 #OLS with php 8.3.28
 RUN wget -O - https://repo.litespeed.sh⁠ | bash
 RUN apt install openlitespeed -y
@@ -16,6 +14,8 @@ apt autoremove -y && rm -rf /var/lib/apt/lists/*
 #comment below if not using VOLUME
 RUN mv /usr/local/lsws/Example/* /var/lsws-www/ && chown -R lsadm:lsadm /var/lsws-www/*
 EXPOSE 80 443 7080
+#comment below if not using volume
+VOLUME /var/lsws-www
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
