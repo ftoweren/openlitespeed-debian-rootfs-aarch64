@@ -17,6 +17,9 @@ https://github.com/armbian/community/releases/download/25.11.0-trunk.472/Armbian
 ```bash
 docker pull ftoweren/openlitespeed-debian-rootfs-aarch64:latest
 ```
+```bash
+docker pull ftoweren/openlitespeed-debian-rootfs-aarch64:2025-12
+```
 
 ### Run Container (With Persistent Volume & Custom Ports)
 ```bash
