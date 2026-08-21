@@ -3,9 +3,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ADD variant-essential+apt/debian-rootfs-essential-apt-trixie-aarch64.tar.gz /
 
-#comment below if not using volume
-#VOLUME /var/lsws-www
-
 #comment below if not using VOLUME
 #RUN mv /usr/local/lsws/Example/* /var/lsws-www/ && chown -R lsadm:lsadm /var/lsws-www/*
 
@@ -23,6 +20,9 @@ RUN	sed -i 's/8088/80/g' /usr/local/lsws/conf/httpd_config.conf && apt-get autor
 	rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/.deb /var/tmp/ /tmp/*
 
 EXPOSE 80 443 7080
+
+#comment below if not using volume
+#VOLUME /var/lsws-www
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
