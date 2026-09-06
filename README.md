@@ -2,7 +2,7 @@
 
 _general info:_
 
-- Openlitespeed-1.9.2 in latest version (2026-08) with PHP 8.4.24
+- Openlitespeed-1.9.2 in latest version (with PHP 8.4.24 on :2026-08)
 - Openlitespeed-1.8.4 on Debian Trixie rootfs essential + apt (linux/aarch64)
 - Expose http 80 (8880:80), https 443 (8843:443), admin https 7080 (8870:7080)
 - Built and tested on ARM64 device (ZTE B860H v.2) with Armbian Community v25.11 running
@@ -17,6 +17,9 @@ https://github.com/armbian/community/releases/download/25.11.0-trunk.472/Armbian
 ### Pull Image
 ```bash
 docker pull ftoweren/openlitespeed-debian-rootfs-x86_64:latest
+```
+```bash
+docker pull ftoweren/openlitespeed-debian-rootfs-aarch64:2026-08
 ```
 ```bash
 docker pull ftoweren/openlitespeed-debian-rootfs-aarch64:2025-12
@@ -44,7 +47,7 @@ docker run -itd -p 8880:80 -p 8843:443 \
 ### Post-Installation Management
 Change OpenLiteSpeed Admin Password:
 
-_current/latest version: admin/erMlh9T6KhKF4AMj_
+_current/latest version: _admin/ln9yQlRFpVi7tC6I_
 ```bash
 docker exec -it ols-debian-rootfs /usr/local/lsws/admin/misc/admpass.sh
 ```
