@@ -1,4 +1,4 @@
-# Openlitespeed on Debian Trixie-rootfs (AARCH64) | php84 | port 80
+# Openlitespeed on Debian Trixie-rootfs (AARCH64) | php8 | port 80
 
 _general info:_
 
